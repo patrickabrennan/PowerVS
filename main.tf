@@ -32,7 +32,6 @@ resource "ibm_pi_volume" "test_volume" {
   pi_volume_size	= 2
   pi_volume_name	= "test_volume"
   pi_volume_type	= "tiuer 3" 
-  pi_volumne_shareable	= "true"
 }
 
 resource "ibm_pi_instance" "my_instance" {
