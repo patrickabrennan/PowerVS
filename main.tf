@@ -40,7 +40,7 @@ resource "ibm_pi_instance" "my_instance" {
   pi_processors		= 0.25
   pi_instance_name	= "test_rhel_instance"
   pi_proc_type		= "shared"
-  pi_image_id 		= "df5OB543-b385-4ee8-ad4d-b4ede88be392
+  pi_image_id 		= "df5OB543-b385-4ee8-ad4d-b4ede88be392"
   pi_sys_type		= "s922"
   pi_cloud_instance_id	= "instance_id"
   pi_network {
