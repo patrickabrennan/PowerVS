@@ -14,17 +14,6 @@ provider "ibm" {
   zone = "dal10"
 }
 
-data "ibm_pi_images" "ai_x_images" {
-  pi_cloud_instance_id = "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
-  image_type = "image"
-  os_type = "AIX"
-}
-
-output "aix_image_oid" {
-  value = data.ibm_pi_image_os.ai_x_images.os_images[0].image_id
-  description = "The OID of the first AIX image found."
-}
-
 #Create a subnet
 resource "ibm_pi_network" "my_subnet" { 
   pi_cloud_instance_id	= "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
@@ -46,7 +35,7 @@ resource "ibm_pi_instance" "my_instance" {
   pi_processors		= 0.25
   pi_instance_name	= "test_rhel_instance"
   pi_proc_type		= "shared"
-  pi_image_id 		= "df5OB543-b385-4ee8-ad4d-b4ede88be392"
+  pi_image_id 		= "7300-03-00"
   pi_sys_type		= "s922"
   pi_cloud_instance_id	= "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
   pi_network {
