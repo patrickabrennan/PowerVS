@@ -16,6 +16,7 @@ provider "ibm" {
 
 data "ibm_pi_instance" "example" {
   instance_id = ibm_pi_instance.example.id
+}
 
 #Create a subnet
 resource "ibm_pi_network" "my_subnet" { 
@@ -23,6 +24,7 @@ resource "ibm_pi_network" "my_subnet" {
   pi_network_name	= "test-subnet"
   pi_network_type	= "vlan"
   pi_cidr		= "192.1689.1.0/24
+}
 
 #create Volume
 resource "ibm_pi_volume" "test_volume" {
@@ -31,8 +33,9 @@ resource "ibm_pi_volume" "test_volume" {
   pi_volume_name	= "test_volume"
   pi_volume_type	= "tiuer 3" 
   pi_volumne_shareable	= true
+}
 
-resource "ibm_pi_instance" "my_instance"
+resource "ibm_pi_instance" "my_instance" {
   pi_memory		= 4
   pi_processors		= 0.25
   pi_instance_name	= "test_rhel_instance"
@@ -43,6 +46,7 @@ resource "ibm_pi_instance" "my_instance"
   pi_network {
    network_id = ibm_pi_network.my_subnet.network_id
   }
+}
 
 resource "ibm_pi_colume_attach "test_volume" {
   pi_cloud_instance_id	= "instance_id"
