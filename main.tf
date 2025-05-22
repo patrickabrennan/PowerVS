@@ -48,7 +48,7 @@ resource "ibm_pi_instance" "my_instance" {
   }
 }
 
-resource "ibm_pi_colume_attach" "test_volume" {
+resource "ibm_pi_volume_attach" "test_volume" {
   pi_cloud_instance_id	= "instance_id"
   pi_volume_id = ibm_pi_volume.test_volume.ivolume_id
   pi_instance_id = ibm_pi_instance.my_instance.instance_id
