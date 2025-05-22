@@ -14,7 +14,9 @@ provider "ibm" {
   zone = "dal10"
 }
 
-data "ibm_pi_images" "images" {}
+data "ibm_pi_images" "images" {
+  pi_cloud_instance_id	= "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
+}
 
 output "available_images" {
   value = data.ibm_pi_images.images.images
