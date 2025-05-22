@@ -31,7 +31,7 @@ resource "ibm_pi_volume" "test_volume" {
   pi_cloud_instance_id	= "instance_id"
   pi_volume_size	= 2
   pi_volume_name	= "test_volume"
-  pi_volume_type	= "tiuer 3" 
+  pi_volume_type	= "tier 3" 
 }
 
 resource "ibm_pi_instance" "my_instance" {
