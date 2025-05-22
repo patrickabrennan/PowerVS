@@ -10,8 +10,8 @@ terraform {
 
 provider "ibm" {
   ibmcloud_api_key   = "obrSTjaKwv25WyqZXxBFWYiwhq0mIPk43aq4weVJ1F0v"
-  region = "dal"
-  zone = "dal13"
+  region = "us-south"
+  zone = "dal10"
 }
 
 
