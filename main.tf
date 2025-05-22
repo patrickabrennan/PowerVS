@@ -14,7 +14,7 @@ provider "ibm" {
   zone = "dal13"
 }
 
-data "ibm_pi_instance" "example" {
+data "ibm_pi_instance" "pi_cloud_instance_id" {
   instance_id = ibm_pi_instance.example.id
 }
 
