@@ -14,13 +14,10 @@ provider "ibm" {
   zone = "dal13"
 }
 
-data "ibm_pi_instance" "pi_cloud_instance_id" {
-  instance_id = ibm_pi_instance.example.id
-}
 
 #Create a subnet
 resource "ibm_pi_network" "my_subnet" { 
-  pi_cloud_instance_id	= "instance_id"
+  pi_cloud_instance_id	= "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
   pi_network_name	= "test-subnet"
   pi_network_type	= "vlan"
   pi_cidr		= "192.1689.1.0/24"
@@ -28,7 +25,7 @@ resource "ibm_pi_network" "my_subnet" {
 
 #create Volume
 resource "ibm_pi_volume" "test_volume" {
-  pi_cloud_instance_id	= "instance_id"
+  pi_cloud_instance_id	= "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
   pi_volume_size	= 2
   pi_volume_name	= "test_volume"
   pi_volume_type	= "tier3" 
@@ -41,7 +38,7 @@ resource "ibm_pi_instance" "my_instance" {
   pi_proc_type		= "shared"
   pi_image_id 		= "df5OB543-b385-4ee8-ad4d-b4ede88be392"
   pi_sys_type		= "s922"
-  pi_cloud_instance_id	= "instance_id"
+  pi_cloud_instance_id	= "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
   pi_network {
    network_id = ibm_pi_network.my_subnet.network_id
   }
