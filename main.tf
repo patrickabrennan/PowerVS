@@ -20,7 +20,7 @@ resource "ibm_pi_network" "my_subnet" {
   pi_cloud_instance_id	= "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
   pi_network_name	= "test-subnet"
   pi_network_type	= "vlan"
-  pi_cidr		= "192.1689.1.0/24"
+  pi_cidr		= "192.168.1.0/24"
 }
 
 #create Volume
