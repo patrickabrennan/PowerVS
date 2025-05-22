@@ -14,7 +14,7 @@ provider "ibm" {
   zone = "dal10"
 }
 
-data "ibm_pi_image_os" "ai_x_images" {
+data "ibm_pi_images" "ai_x_images" {
   pi_cloud_instance_id = "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
   image_type = "image"
   os_type = "AIX"
