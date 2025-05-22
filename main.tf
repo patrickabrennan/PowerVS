@@ -14,6 +14,11 @@ provider "ibm" {
   zone = "dal10"
 }
 
+data "ibm_pi_images" "images" {}
+
+output "available_images" {
+  value = data.ibm_pi_images.images.images
+}
 
 #Create a subnet
 resource "ibm_pi_network" "my_subnet" { 
