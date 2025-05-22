@@ -14,12 +14,15 @@ provider "ibm" {
   zone = "dal10"
 }
 
-data "ibm_pi_images" "ds_images" {
+data "ibm_pi_image_os" "ai_x_images" {
   pi_cloud_instance_id = "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
+  image_type = "image"
+  os_type = "AIX"
 }
 
-output "available_images" {
-  value = data.ibm_pi_images.ds_images
+output "aix_image_oid" {
+  value = data.ibm_pi_image_os.ai_x_images.os_images[0].image_id
+  description = "The OID of the first AIX image found."
 }
 
 #Create a subnet
