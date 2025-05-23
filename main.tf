@@ -34,9 +34,6 @@ resource "ibm_pi_instance" "my_instance" {
   pi_network {
    network_id = ibm_pi_network.my_subnet.network_id
   }
-  pi_network_interface {
-    subnet = ibm_pi_network.my_subnet.id 
-  }
 }
 
 #create Volume
@@ -61,7 +58,7 @@ resource "ibm_pi_key" "ssh_key" {
 
 resource "ibm_is_floating_ip" "fip1" {
   name = "fip1"
-  target = ibm_pi_instance.my_instance.primary_network_interface[0].id
+  target = ibm_pi_instance.my_instance.network_id
 }
 
 #output "sshcommand" {
