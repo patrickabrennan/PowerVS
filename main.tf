@@ -21,7 +21,6 @@ resource "ibm_pi_network" "my_subnet" {
   pi_network_type	= "vlan"
   pi_network_mtu       = "9000"
   pi_cidr		= "192.168.1.0/24"
-  private_network_ids = [ibm_powervs_private_network.private_network.id]
 }
 
 resource "ibm_pi_instance" "my_instance" {
