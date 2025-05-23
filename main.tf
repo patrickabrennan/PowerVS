@@ -65,7 +65,7 @@ resource "ibm_pi_key" "ssh_key" {
 
 resource "ibm_is_floating_ip" "fip1" {
   name   = "fip1"
-  target = ibm_is_instance.my_instance.primary_network_interface[0].id
+  target = ibm_pi_instance.my_instance.primary_network_interface[0].id
 }
 
 #resource "ibm_is_floating_ip" "fip1" {
