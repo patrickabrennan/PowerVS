@@ -40,9 +40,6 @@ resource "ibm_pi_instance" "my_instance" {
    network_id = data.ibm_pi_public_network.dsnetwork.id
   }
 }
-pi_network {
-  data.ibm_pi_public_network.dsnetwork.id
-}
 
 #create Volume
 resource "ibm_pi_volume" "test_volume" {
