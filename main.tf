@@ -14,6 +14,19 @@ provider "ibm" {
   zone = "dal10"
 }
 
+# Create a PowerVS workspace (if not already existing)
+resource "ibm_powervs_workspace" "workspace" {
+  name = "my-workspace"
+  zone = "us-south" 
+}
+
+# Create a private network
+resource "ibm_powervs_private_network" "private_network" {
+  name       = "my-private-network"
+  description = "Private network for my PowerVS instances"
+  cidr_block = "192.168.0.0.0/16" # Replace with your desired CIDR block
+}
+
 #Create a subnet
 resource "ibm_pi_network" "my_subnet" { 
   pi_cloud_instance_id	= "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
@@ -21,14 +34,7 @@ resource "ibm_pi_network" "my_subnet" {
   pi_network_type	= "vlan"
   pi_network_mtu       = "9000"
   pi_cidr		= "192.168.1.0/24"
-}
-
-#create Volume
-resource "ibm_pi_volume" "test_volume" {
-  pi_cloud_instance_id	= "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
-  pi_volume_size	= 2
-  pi_volume_name	= "test_volume"
-  pi_volume_type	= "tier3" 
+  private_network_ids = [ibm_powervs_private_network.private_network.id]
 }
 
 resource "ibm_pi_instance" "my_instance" {
@@ -42,6 +48,14 @@ resource "ibm_pi_instance" "my_instance" {
   pi_network {
    network_id = ibm_pi_network.my_subnet.network_id
   }
+}
+
+#create Volume
+resource "ibm_pi_volume" "test_volume" {
+  pi_cloud_instance_id	= "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
+  pi_volume_size	= 2
+  pi_volume_name	= "test_volume"
+  pi_volume_type	= "tier3" 
 }
 
 resource "ibm_pi_volume_attach" "test_volume" {
