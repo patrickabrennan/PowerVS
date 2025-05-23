@@ -34,7 +34,7 @@ resource "ibm_pi_instance" "my_instance" {
   pi_network {
    network_id = ibm_pi_network.my_subnet.network_id
   }
-  primary_network_interface {
+  pi_network_interface {
     subnet = ibm_pi_network.my_subnet.id 
   }
 }
