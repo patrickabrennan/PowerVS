@@ -20,7 +20,10 @@ resource "ibm_pi_network" "my_subnet" {
   pi_network_name	= "test-subnet"
   pi_network_type	= "vlan"
   pi_network_mtu       = "9000"
-  pi_cidr		= "192.168.1.0/24"
+  pi_cidr		= "10.1.0.0/24"
+  pi_gateway  = "10.1.0.1
+  pi_dns_servers = ["8.8.8.8"]
+  pi_ip_address_range  = "10.0.0.10-10.1.0.250"
 }
 
 data "ibm_pi_public_network" "my_subnet" {
