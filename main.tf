@@ -14,19 +14,6 @@ provider "ibm" {
   zone = "dal10"
 }
 
-# Create a PowerVS workspace (if not already existing)
-resource "ibm_powervs_workspace" "workspace" {
-  name = "my-workspace"
-  zone = "us-south" 
-}
-
-# Create a private network
-resource "ibm_powervs_private_network" "private_network" {
-  name       = "my-private-network"
-  description = "Private network for my PowerVS instances"
-  cidr_block = "192.168.0.0.0/16" # Replace with your desired CIDR block
-}
-
 #Create a subnet
 resource "ibm_pi_network" "my_subnet" { 
   pi_cloud_instance_id	= "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
