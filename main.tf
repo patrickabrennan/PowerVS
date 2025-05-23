@@ -11,7 +11,7 @@ terraform {
 provider "ibm" {
   ibmcloud_api_key   = "obrSTjaKwv25WyqZXxBFWYiwhq0mIPk43aq4weVJ1F0v"
   region = "us-south"
-  zone = "dal12"
+  zone = "us-south"
 }
 
 #Create a subnet
@@ -58,7 +58,7 @@ resource "ibm_pi_key" "ssh_key" {
 
 resource "ibm_is_floating_ip" "fp1" {
   name = "fip1"
-  zone = "dal12"
+  zone = "us-south"
 }
 
 #output "sshcommand" {
