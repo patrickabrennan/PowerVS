@@ -32,8 +32,24 @@ resource "ibm_pi_instance" "my_instance" {
   pi_sys_type		= "s922"
   pi_cloud_instance_id	= "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
   pi_network {
-   network_id = ibm_pi_network.my_subnet.network_id
+      network_id = data.ibm_pi_public_network.dsnetwork.id
   }
+  #pi_network {
+  # network_id = ibm_pi_network.my_subnet.network_id
+  #}
+}
+
+resource "ibm_is_floating_ip" "floating_ip" {
+  name = "my-floating-ip"
+  resource_group_id = ibm_resource_group.my_resource_group.id
+  location = "us-south" 
+  target_instance_id = ibm_is_instance.my_instance.id
+}
+
+resource "ibm_is_instance_network_interface_floating_ip" "network_interface_floating_ip" {
+  instance_id = ibm_is_instance.my_instance.id
+  network_interface_id = ibm_is_instance.my_instance.network_interface_id # You'll need to find this ID
+  floating_ip_id = ibm_is_floating_ip.floating_ip.id
 }
 
 #create Volume
