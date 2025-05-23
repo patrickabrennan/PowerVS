@@ -23,7 +23,7 @@ resource "ibm_pi_network" "my_subnet" {
   pi_cidr		= "192.168.1.0/24"
 }
 
-data "ibm_pi_public_network" "dsnetwork" {
+data "ibm_pi_public_network" "my_subnet" {
   pi_cloud_instance_id	= "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
 }
 
@@ -37,7 +37,7 @@ resource "ibm_pi_instance" "my_instance" {
   pi_cloud_instance_id	= "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
   pi_network {
    #network_id = ibm_pi_network.my_subnet.network_id
-   network_id = data.ibm_pi_public_network.dsnetwork.id
+   network_id = data.ibm_pi_public_network.my_subnet.id
   }
 }
 
