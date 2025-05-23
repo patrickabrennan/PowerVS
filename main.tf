@@ -23,6 +23,7 @@ resource "ibm_pi_network" "my_subnet" {
   pi_cidr		= "10.1.0.0/24"
   pi_gateway  = "10.1.0.1"
   pi_dns = ["8.8.8.8"]
+  pi_public_network = true
 }
 
 #data "ibm_pi_public_network" "my_subnet" {
