@@ -14,7 +14,7 @@ provider "ibm" {
 }
 
 data "ibm_resource_group" "group" {
-  name = "demo"
+  is_default = "true"
 }
 
 resource "ibm_pi_workspace" "powervs_service_instance" {
