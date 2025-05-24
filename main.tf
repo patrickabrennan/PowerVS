@@ -14,6 +14,16 @@ provider "ibm" {
   #zone = "us-south"
 }
 
+resource "ibm_pi_resource_instance" "powervs_workspace" {
+      name          = "my-powervs-workspace" #  (Required) Name of the PowerVS workspace
+      resource_group = "my-resource-group" # (Required) Resource group where the workspace will be created
+      service_name  = "power-iaas"          # (Required) Service name for Power Virtual Server (PVS)
+      plan_name     = "power-virtual-server-group"  # (Required)  Choose the appropriate plan, for clients it's "power-virtual-server-private-group"
+      # Optionally, you can specify other parameters like:
+      zone         = "us-south"     # (Optional) Data center zone
+      region       = "us-south"   # (Optional) Region
+}
+
 #Create a subnet
 resource "ibm_pi_network" "my_subnet" { 
   pi_cloud_instance_id	= "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
