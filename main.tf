@@ -18,9 +18,10 @@ data "ibm_resource_group" "group" {
 }
 
 resource "ibm_pi_workspace" "powervs_service_instance" {
-  pi_name               = "powerVS-demo"
+  pi_name               = "PowerVS-demo"
   pi_datacenter         = "us-south"
   pi_resource_group_id  = data.ibm_resource_group.group.id
+  pi_plan               = "public"
 }
 
 #Create a subnet
