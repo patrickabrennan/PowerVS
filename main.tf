@@ -2,7 +2,7 @@ terraform {
   required_providers {
     ibm = {
       source  = "IBM-Cloud/ibm"
-      version = ">= 1.57.0"
+      version = >= "1.57.0"
     }
   }
   required_version = "= 1.12.1"
@@ -36,7 +36,6 @@ resource "ibm_pi_instance" "my_instance" {
   pi_cloud_instance_id	= "4f15aba3-7eee-443f-9c2a-3c2f45b46f41"
   pi_network {
    network_id = ibm_pi_network.my_subnet.network_id
-   #network_id = data.ibm_pi_public_network.my_subnet.id
   }
 }
 
