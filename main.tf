@@ -17,6 +17,14 @@ data "ibm_resource_group" "group" {
   is_default = "true"
 }
 
+data "ibm_resource_instance" "service_instance" {
+  name = "my-service-instance"  # Replace with the actual name of your service instance
+}
+
+output "service_instance_guid" {
+  value = data.ibm_resource_instance.service_instance.identifier
+}
+
 resource "ibm_pi_workspace" "powervs_service_instance" {
   pi_name               = "PowerVS-demo"
   pi_datacenter         = "us-south"
@@ -26,7 +34,7 @@ resource "ibm_pi_workspace" "powervs_service_instance" {
 
 #Create a subnet
 resource "ibm_pi_network" "my_subnet" { 
-  pi_cloud_instance_id	= "4f15aba3-7eee-443f-9c2a-3c2f45b46f41"
+  pi_cloud_instance_id	= [service_instance_guid]
   pi_network_name	= "test-subnet"
   pi_network_type	= "vlan"
   pi_network_mtu       = "9000"
