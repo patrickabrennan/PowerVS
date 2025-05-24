@@ -24,7 +24,7 @@ variable "pi_workspace_name" {
 variable "pi_ssh_public_key" {
   type = object({
   key_type  = string
- npublic_key = string
+  public_key = string
  })
  description = "SSH public key for the Raspberry Pi"
  default = {
