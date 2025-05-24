@@ -13,6 +13,15 @@ provider "ibm" {
   zone = "us-south"
 }
 
+data "ibm_resource_group" "group" {
+  name = "demo"
+}
+
+resource "ibm_pi_workspace" "powervs_service_instance" {
+  pi_name               = "powerVS-demo"
+  pi_datacenter         = "us-south"
+  pi_resource_group_id  = data.ibm_resource_group.group.id
+}
 
 #Create a subnet
 resource "ibm_pi_network" "my_subnet" { 
