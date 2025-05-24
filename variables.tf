@@ -22,14 +22,6 @@ variable "pi_workspace_name" {
 }
 
 variable "pi_ssh_public_key" {
-  description = "Name and value of the Public SSH key to create in PowerVS workspace."
-  type = object({
-    name  = string
-    value = string
-  })
-}
-
-variable "pi_ssh_public_key" {
   type = object({
   key_type  = string
  npublic_key = string
