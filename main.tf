@@ -14,17 +14,6 @@ provider "ibm" {
   #zone = "us-south"
 }
 
-
-
-data "ibm_resource_group" "resource_group_ds" {
-  name = var.pi_resource_group_name
-}
-
-
-
-
-
-
 module "powervs-workspace" {
   source  = "terraform-ibm-modules/powervs-workspace/ibm"
   version = "3.0.2"
