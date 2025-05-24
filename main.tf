@@ -21,9 +21,18 @@ module "powervs-workspace" {
   pi_zone                                 = var.pi_zone
   pi_resource_group_name                  = var.pi_resource_group_name
   pi_workspace_name                       = var.pi_workspace_name
-  #pi_ssh_public_key                       = var.pi_ssh_public_key
+  pi_ssh_public_key                       = var.pi_ssh_public_key
 }
 
+#####################################################
+# Create SSH Public Key in PowerVS workspace
+#####################################################
+
+resource "ibm_pi_key" "ssh_key" {
+  pi_cloud_instance_id = ibm_resource_instance.pi_workspace.guid
+  pi_key_name          = var.pi_ssh_public_key.name
+  pi_ssh_key           = var.pi_ssh_public_key.value
+}
 #Create a subnet
 #resource "ibm_pi_network" "my_subnet" { 
 #  pi_cloud_instance_id	= "643dac51-7891-4c2f-abc5-6ddeb680e2ad"
