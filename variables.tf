@@ -29,3 +29,14 @@ variable "pi_ssh_public_key" {
   })
 }
 
+variable "pi_ssh_public_key" {
+  type = object({
+  key_type  = string
+ npublic_key = string
+ })
+ description = "SSH public key for the Raspberry Pi"
+ default = {
+   key_type  = "ssh-rsa"
+   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCI..."
+ }
+}
