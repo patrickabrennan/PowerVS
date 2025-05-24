@@ -14,46 +14,26 @@ provider "ibm" {
   #zone = "us-south"
 }
 
-#####################################################
-# Create PowerVS workspace
-#####################################################
 
-locals {
-  service_type = "power-iaas"
-  plan         = "power-virtual-server-group"
-}
 
 data "ibm_resource_group" "resource_group_ds" {
   name = var.pi_resource_group_name
 }
 
-resource "ibm_resource_instance" "pi_workspace" {
-  name              = var.pi_workspace_name
-  service           = local.service_type
-  plan              = local.plan
-  location          = var.pi_zone
-  resource_group_id = data.ibm_resource_group.resource_group_ds.id
-#  tags              = (var.pi_tags != null ? var.pi_tags : [])
-
-  timeouts {
-    create = "6m"
-    update = "5m"
-    delete = "10m"
-  }
-}
 
 
 
 
-#module "powervs-workspace" {
-#  source  = "terraform-ibm-modules/powervs-workspace/ibm"
-#  version = "3.0.2"
+
+module "powervs-workspace" {
+  source  = "terraform-ibm-modules/powervs-workspace/ibm"
+  version = "3.0.2"
   # insert the 4 required variables here
-#  pi_zone                                 = var.pi_zone
-#  pi_resource_group_name                  = var.pi_resource_group_name
-#  pi_workspace_name                       = var.pi_workspace_name
-#  pi_ssh_public_key                       = var.pi_ssh_public_key
-#}
+  pi_zone                                 = var.pi_zone
+  pi_resource_group_name                  = var.pi_resource_group_name
+  pi_workspace_name                       = var.pi_workspace_name
+  pi_ssh_public_key                       = var.pi_ssh_public_key
+}
 
 #Create a subnet
 #resource "ibm_pi_network" "my_subnet" { 
