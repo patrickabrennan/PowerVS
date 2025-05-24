@@ -34,7 +34,7 @@ resource "ibm_pi_workspace" "powervs_service_instance" {
 
 #Create a subnet
 resource "ibm_pi_network" "my_subnet" { 
-  pi_cloud_instance_id	= [service_instance_guid]
+  pi_cloud_instance_id	= data.ibm_resource_instance.service_instance.identifier
   pi_network_name	= "test-subnet"
   pi_network_type	= "vlan"
   pi_network_mtu       = "9000"
