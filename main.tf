@@ -13,16 +13,16 @@ provider "ibm" {
   zone = "us-south"
 }
 
+data "ibm_pi_cloud_connections" "example" {
+  pi_cloud_instance_id      = "pi_cloud_instance_id"
+}
+
+output "pi_cloud_instance_id" {
+  value = data.ibm_pi_cloud_connections.example.pi_cloud_instance_id
+}
+
 data "ibm_resource_group" "group" {
   is_default = "true"
-}
-
-data "ibm_resource_instance" "service_instance" {
-  name = "my-service-instance"  # Replace with the actual name of your service instance
-}
-
-output "service_instance_guid" {
-  value = data.ibm_resource_instance.service_instance.identifier
 }
 
 resource "ibm_pi_workspace" "powervs_service_instance" {
