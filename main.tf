@@ -37,7 +37,7 @@ resource "ibm_pi_instance" "my_instance" {
   pi_instance_name	= var.pi_instance_name
   pi_proc_type		= var.pi_proc_type
   pi_image_id 		= var.pi_image_id
-  pi_sys_type		= var.pi_image_id
+  pi_sys_type		= var.pi_sys_type
   pi_cloud_instance_id	= var.pi_cloud_instance_id
   pi_key_pair_name = var.pi_key_name
   pi_network {
