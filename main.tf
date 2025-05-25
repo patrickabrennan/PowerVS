@@ -9,7 +9,8 @@ terraform {
 
 provider "ibm" {
   ibmcloud_api_key   = var.ibmcloud_api_key
-  region="us-south"
+  region= var.zone
+  zone = var.zone
 }
 
 #resource "ibm_pi_workspace" "powervs_service_instance" {
