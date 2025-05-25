@@ -18,9 +18,9 @@ data "ibm_pi_cloud_connection" "example" {
   pi_cloud_instance_id      = "9568b7d56c7f48399bf8580557b5f022"
 }
 
-output "pi_cloud_instance_id" {
-  value = data.ibm_pi_cloud_connections.example.pi_cloud_instance_id
-}
+#output "pi_cloud_instance_id" {
+#  value = data.ibm_pi_cloud_connections.example.pi_cloud_instance_id
+#}
 
 data "ibm_resource_group" "group" {
   is_default = "true"
