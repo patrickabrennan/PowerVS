@@ -13,8 +13,9 @@ provider "ibm" {
   zone = "us-south"
 }
 
-data "ibm_pi_cloud_connections" "example" {
-  pi_cloud_instance_id      = "pi_cloud_instance_id"
+data "ibm_pi_cloud_connection" "example" {
+  pi_cloud_connection_name  = "test_cloud_connection"
+  pi_cloud_instance_id      = "9568b7d56c7f48399bf8580557b5f022"
 }
 
 output "pi_cloud_instance_id" {
@@ -34,7 +35,7 @@ resource "ibm_pi_workspace" "powervs_service_instance" {
 
 #Create a subnet
 resource "ibm_pi_network" "my_subnet" { 
-  pi_cloud_instance_id	= [pi_cloud_instance_id]
+  pi_cloud_instance_id	= ibm_pi_cloud_connection.example.id
   pi_network_name	= "test-subnet"
   pi_network_type	= "vlan"
   pi_network_mtu       = "9000"
