@@ -42,7 +42,7 @@ resource "ibm_pi_network" "my_subnet" {
   pi_cidr		= "10.1.0.0/24"
   pi_gateway  = "10.1.0.1"
   pi_dns = ["8.8.8.8"]
-  depends_on = [ibm_pi_workspace.powervs_service_instance]
+  #depends_on = [ibm_pi_workspace.powervs_service_instance]
 }
 
 resource "ibm_pi_instance" "my_instance" {
@@ -56,7 +56,7 @@ resource "ibm_pi_instance" "my_instance" {
   pi_network {
    network_id = ibm_pi_network.my_subnet.network_id
   }
-  depends_on = [ibm_pi_network.my_subnet]
+  #depends_on = [ibm_pi_network.my_subnet]
 }
 
 #create Volume
