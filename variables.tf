@@ -42,10 +42,6 @@ variable "pi_sys_type" {
   type		= string
 }
 
-variable "pi_cloud_instance_id" {
-  type		= string
-}
-
 variable "pi_volume_size" {
   type		= string
 }
