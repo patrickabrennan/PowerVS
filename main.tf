@@ -14,7 +14,7 @@ provider "ibm" {
 }
 
 data "ibm_pi_cloud_connection" "example" {
-  pi_cloud_connection_name  = "test_cloud_connection"
+  pi_cloud_connection_name  = "test"
   pi_cloud_instance_id      = "08d4d95c-2597-4882-92d6-2b3516cc0fd9"
 }
 
