@@ -70,7 +70,6 @@ resource "ibm_is_ssh_key" "PowerVS_sshkey" {
 #  name = "fip1"
 #  target = ibm_pi_instance.my_instance.network_id
 #  crn = "crn:v1:bluemix:public:power-iaas:us-south:a/9568b7d56c7f48399bf8580557b5f022:10f21edf-47a3-454f-b2a3-e1032b4ea6c5:pvm-instance:01f8706c-8589-4f1f-b13b-ae5b67bd80d0"
-}
 #}
 
 #output "sshcommand" {
