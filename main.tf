@@ -22,14 +22,13 @@ provider "ibm" {
 
 #Create a subnet
 resource "ibm_pi_network" "my_subnet" { 
-  pi_cloud_instance_id	= "9f2d702e-5199-41b4-8d6c-9ba41fbaaa16"
+  pi_cloud_instance_id	= "10f21edf-47a3-454f-b2a3-e1032b4ea6c5"
   pi_network_name	= "test-subnet"
   pi_network_type	= "vlan"
   pi_network_mtu       = "9000"
   pi_cidr		= "10.1.0.0/24"
   pi_gateway  = "10.1.0.1"
   pi_dns = ["8.8.8.8"]
-  #depends_on = [ibm_pi_workspace.powervs_service_instance]
 }
 
 resource "ibm_pi_instance" "my_instance" {
@@ -39,24 +38,23 @@ resource "ibm_pi_instance" "my_instance" {
   pi_proc_type		= "shared"
   pi_image_id 		= "7300-03-00"
   pi_sys_type		= "s922"
-  pi_cloud_instance_id	= "9f2d702e-5199-41b4-8d6c-9ba41fbaaa16"
+  pi_cloud_instance_id	= "10f21edf-47a3-454f-b2a3-e1032b4ea6c5"
   #pi_key_pair_name = "PowerVS-ssh"
   pi_network {
    network_id = ibm_pi_network.my_subnet.network_id
   }
-  #depends_on = [ibm_pi_network.my_subnet]
 }
 
 #create Volume
 resource "ibm_pi_volume" "test_volume" {
-  pi_cloud_instance_id	= "9f2d702e-5199-41b4-8d6c-9ba41fbaaa16"
+  pi_cloud_instance_id	= "10f21edf-47a3-454f-b2a3-e1032b4ea6c5"
   pi_volume_size	= 2
   pi_volume_name	= "test_volume"
   pi_volume_type	= "tier3" 
 }
 
 resource "ibm_pi_volume_attach" "test_volume" {
-  pi_cloud_instance_id	= "9f2d702e-5199-41b4-8d6c-9ba41fbaaa16"
+  pi_cloud_instance_id	= "10f21edf-47a3-454f-b2a3-e1032b4ea6c5"
   pi_volume_id = ibm_pi_volume.test_volume.volume_id
   pi_instance_id = ibm_pi_instance.my_instance.instance_id
 }
