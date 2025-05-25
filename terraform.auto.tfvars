@@ -1,5 +1,7 @@
+
 ibmcloud_api_key   = "obrSTjaKwv25WyqZXxBFWYiwhq0mIPk43aq4weVJ1F0v"
 region  = "us-south"
+zone = "us-south"
 pi_cloud_instance_id	= "10f21edf-47a3-454f-b2a3-e1032b4ea6c5"
 pi_network_name	= "test-sub"
 pi_network_type = "vlan"
