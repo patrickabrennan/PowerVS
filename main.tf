@@ -38,7 +38,7 @@ resource "ibm_pi_instance" "my_instance" {
   pi_image_id 		= var.pi_image_id
   pi_sys_type		= var.pi_image_id
   pi_cloud_instance_id	= var.pi_cloud_instance_id
-  pi_key_pair_name = var.pi_key_pair_name
+  pi_key_pair_name = var.pi_key_name
   pi_network {
    network_id = ibm_pi_network.my_subnet.network_id
   }
