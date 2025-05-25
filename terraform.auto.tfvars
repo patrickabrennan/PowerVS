@@ -1,6 +1,8 @@
 ibmcloud_api_key   = "obrSTjaKwv25WyqZXxBFWYiwhq0mIPk43aq4weVJ1F0v"
+region  = "us-south"
 pi_cloud_instance_id	= "10f21edf-47a3-454f-b2a3-e1032b4ea6c5"
 pi_network_name	= "test-sub"
+pi_network_type = "vlan"
 pi_memory		= 4
 pi_processors		= 0.25
 pi_instance_name	= "test_rhel_instance"
