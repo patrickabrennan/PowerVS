@@ -46,12 +46,12 @@ resource "ibm_pi_instance" "my_instance" {
 }
 
 #create Volume
-#resource "ibm_pi_volume" "test_volume" {
-#  pi_cloud_instance_id	= "10f21edf-47a3-454f-b2a3-e1032b4ea6c5"
-#  pi_volume_size	= 2
-#  pi_volume_name	= "test_volume"
-#  pi_volume_type	= "tier3" 
-#}
+resource "ibm_pi_volume" "test_volume" {
+  pi_cloud_instance_id	= "10f21edf-47a3-454f-b2a3-e1032b4ea6c5"
+  pi_volume_size	= 100
+  pi_volume_name	= "test_volume"
+  pi_volume_type	= "tier3" 
+}
 
 #resource "ibm_pi_volume_attach" "test_volume" {
 #  pi_cloud_instance_id	= "10f21edf-47a3-454f-b2a3-e1032b4ea6c5"
