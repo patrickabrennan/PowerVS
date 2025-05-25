@@ -8,10 +8,7 @@ terraform {
 }
 
 provider "ibm" {
-  ibmcloud_api_key   = "obrSTjaKwv25WyqZXxBFWYiwhq0mIPk43aq4weVJ1F0v"
-  region = "us-south"
-  zone = "us-south"
-}
+
 
 #resource "ibm_pi_workspace" "powervs_service_instance" {
 #  pi_name               = "PowerVS-demo"
@@ -60,7 +57,7 @@ resource "ibm_pi_volume_attach" "test_volume" {
 }
 
 resource "ibm_pi_key" "PowerVS_sshkey" {
-  pi_key_name       = var.pi_key_name  "powervs-ssh"
+  pi_key_name       = var.pi_key_name
   pi_ssh_key = var.pi_ssh_key
   pi_cloud_instance_id	= var.pi_cloud_instance_id
 }
