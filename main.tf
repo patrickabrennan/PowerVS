@@ -39,7 +39,7 @@ resource "ibm_pi_instance" "my_instance" {
   pi_image_id 		= "7300-03-00"
   pi_sys_type		= "s922"
   pi_cloud_instance_id	= "10f21edf-47a3-454f-b2a3-e1032b4ea6c5"
-  pi_key_pair_name = "PowerVS-ssh"
+  pi_key_pair_name = "powervs-ssh"
   pi_network {
    network_id = ibm_pi_network.my_subnet.network_id
   }
