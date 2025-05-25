@@ -6,6 +6,10 @@ variable "region" {
   type		= string
 }
 
+variable "zone" {
+  type		= string
+}
+
 variable "pi_cloud_instance_id" {
   type		= string
 }
