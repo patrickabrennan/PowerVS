@@ -53,11 +53,11 @@ resource "ibm_pi_volume" "test_volume" {
   pi_volume_type	= "tier3" 
 }
 
-#resource "ibm_pi_volume_attach" "test_volume" {
-#  pi_cloud_instance_id	= "10f21edf-47a3-454f-b2a3-e1032b4ea6c5"
-#  pi_volume_id = ibm_pi_volume.test_volume.volume_id
-#  pi_instance_id = ibm_pi_instance.my_instance.instance_id
-#}
+resource "ibm_pi_volume_attach" "test_volume" {
+  pi_cloud_instance_id	= "10f21edf-47a3-454f-b2a3-e1032b4ea6c5"
+  pi_volume_id = ibm_pi_volume.test_volume.volume_id
+  pi_instance_id = ibm_pi_instance.my_instance.instance_id
+}
 
 #resource "ibm_powervs_ssh_key" "PowerVS_sshkey" {
 #  name       = "powervs-ssh"
