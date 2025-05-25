@@ -15,7 +15,7 @@ provider "ibm" {
 
 data "ibm_pi_cloud_connection" "example" {
   pi_cloud_connection_name  = "test_cloud_connection"
-  pi_cloud_instance_id      = "9568b7d56c7f48399bf8580557b5f022"
+  pi_cloud_instance_id      = "bluemix:public:power-iaas:us-south"
 }
 
 #output "pi_cloud_instance_id" {
