@@ -8,7 +8,9 @@ terraform {
 }
 
 provider "ibm" {
-
+  ibmcloud_api_key   = var.bmcloud_api_key
+  region="us-south"
+}
 
 #resource "ibm_pi_workspace" "powervs_service_instance" {
 #  pi_name               = "PowerVS-demo"
