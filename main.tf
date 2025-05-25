@@ -13,29 +13,29 @@ provider "ibm" {
   zone = "us-south"
 }
 
-data "ibm_pi_cloud_connection" "example" {
-  pi_cloud_connection_name  = "power-iaas:us-south:a/9568b7d56c7f48399bf8580557b5f022"
-  pi_cloud_instance_id      = "08d4d95c-2597-4882-92d6-2b3516cc0fd9"
-}
+#data "ibm_pi_cloud_connection" "example" {
+#  pi_cloud_connection_name  = "power-iaas:us-south:a/9568b7d56c7f48399bf8580557b5f022"
+#  pi_cloud_instance_id      = "08d4d95c-2597-4882-92d6-2b3516cc0fd9"
+#}
 
 #output "pi_cloud_instance_id" {
 #  value = data.ibm_pi_cloud_connections.example.pi_cloud_instance_id
 #}
 
-data "ibm_resource_group" "group" {
-  is_default = "true"
-}
+#data "ibm_resource_group" "group" {
+#  is_default = "true"
+#}
 
-resource "ibm_pi_workspace" "powervs_service_instance" {
-  pi_name               = "PowerVS-demo"
-  pi_datacenter         = "us-south"
-  pi_resource_group_id  = data.ibm_resource_group.group.id
-  pi_plan               = "public"
-}
+#resource "ibm_pi_workspace" "powervs_service_instance" {
+#  pi_name               = "PowerVS-demo"
+#  pi_datacenter         = "us-south"
+#  pi_resource_group_id  = data.ibm_resource_group.group.id
+#  pi_plan               = "public"
+#}
 
 #Create a subnet
 resource "ibm_pi_network" "my_subnet" { 
-  pi_cloud_instance_id	= data.ibm_pi_cloud_connection.example
+  pi_cloud_instance_id	= "9f2d702e-5199-41b4-8d6c-9ba41fbaaa16"
   pi_network_name	= "test-subnet"
   pi_network_type	= "vlan"
   pi_network_mtu       = "9000"
@@ -52,7 +52,7 @@ resource "ibm_pi_instance" "my_instance" {
   pi_proc_type		= "shared"
   pi_image_id 		= "7300-03-00"
   pi_sys_type		= "s922"
-  pi_cloud_instance_id	= "4f15aba3-7eee-443f-9c2a-3c2f45b46f41"
+  pi_cloud_instance_id	= "9f2d702e-5199-41b4-8d6c-9ba41fbaaa16"
   pi_network {
    network_id = ibm_pi_network.my_subnet.network_id
   }
@@ -61,20 +61,24 @@ resource "ibm_pi_instance" "my_instance" {
 
 #create Volume
 resource "ibm_pi_volume" "test_volume" {
-  pi_cloud_instance_id	= "4f15aba3-7eee-443f-9c2a-3c2f45b46f41"
+  pi_cloud_instance_id	= "9f2d702e-5199-41b4-8d6c-9ba41fbaaa16"
   pi_volume_size	= 2
   pi_volume_name	= "test_volume"
   pi_volume_type	= "tier3" 
 }
 
 resource "ibm_pi_volume_attach" "test_volume" {
-  pi_cloud_instance_id	= "4f15aba3-7eee-443f-9c2a-3c2f45b46f41"
+  pi_cloud_instance_id	= "9f2d702e-5199-41b4-8d6c-9ba41fbaaa16"
   pi_volume_id = ibm_pi_volume.test_volume.volume_id
   pi_instance_id = ibm_pi_instance.my_instance.instance_id
 }
 
+resource "ibm_is_ssh_key" "testacc_sshkey" {
+  name       = "powervs-ssh"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZUw1yvE8A15vPk48W637EjMi/xAtugZJRyxHzmNvcsPRgkJ2ox7owgf3vJNC20yzcArV83uPZnec7lfjfWggVBpI/VETgaeeGC1UB6ilu0WO6MPD5BpVhg5HknMXtaVfmQHdG3Ycw0Ilg8DGFWjTRneTV7mpu00TYQZELBrShE9iVG5RCVQ3Fka8xt9wnCVYj/Qjo4VQyfi36zJe47/XH/Oji2ANVijpPMKHPYQizrm0t/WTdzy2iSFUJhHRqOjjQx79KTWIks2ig3jSFguzztwYKmxDRbb7M7AHS1qutVr5MSeJSxtneNYLYgxwKOx5el0zXIqD/a4ow4TlZJDjStnTFg+RaHXJ4E8sJ6zWEmIlisjKgVPpud1MPkUxRO7kuxiZ37/TxaTkVLDGWylTtNAdQj+ih2h+FtPtHE3VJkOIAI3FTX1GSEdTQoH5eEs/xgLYCIg4ANcSEOoyaJqVgFnQInmXuXd0Hq391AMcOmWugPCioVHcJeanSSeQxw0M= sap"
+}
 #resource "pi_ssh_public_key" "ssh_key" {
-#  pi_cloud_instance_id = "4f15aba3-7eee-443f-9c2a-3c2f45b46f41"
+#  pi_cloud_instance_id = "9f2d702e-5199-41b4-8d6c-9ba41fbaaa16"
 #  pi_key_name          = "powervs-ssh-public"
 #  pi_ssh_key           = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZUw1yvE8A15vPk48W637EjMi/xAtugZJRyxHzmNvcsPRgkJ2ox7owgf3vJNC20yzcArV83uPZnec7lfjfWggVBpI/VETgaeeGC1UB6ilu0WO6MPD5BpVhg5HknMXtaVfmQHdG3Ycw0Ilg8DGFWjTRneTV7mpu00TYQZELBrShE9iVG5RCVQ3Fka8xt9wnCVYj/Qjo4VQyfi36zJe47/XH/Oji2ANVijpPMKHPYQizrm0t/WTdzy2iSFUJhHRqOjjQx79KTWIks2ig3jSFguzztwYKmxDRbb7M7AHS1qutVr5MSeJSxtneNYLYgxwKOx5el0zXIqD/a4ow4TlZJDjStnTFg+RaHXJ4E8sJ6zWEmIlisjKgVPpud1MPkUxRO7kuxiZ37/TxaTkVLDGWylTtNAdQj+ih2h+FtPtHE3VJkOIAI3FTX1GSEdTQoH5eEs/xgLYCIg4ANcSEOoyaJqVgFnQInmXuXd0Hq391AMcOmWugPCioVHcJeanSSeQxw0M= sap"
 #}
