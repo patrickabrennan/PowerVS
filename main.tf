@@ -23,7 +23,7 @@ provider "ibm" {
 resource "ibm_pi_network" "my_subnet" { 
   pi_cloud_instance_id	= var.pi_cloud_instance_id
   pi_network_name	= var.pi_network_name
-  pi_network_type	= "vlan"
+  pi_network_type	= var.pi_network_type
   pi_network_mtu       = "9000"
   pi_cidr		= "10.1.0.0/24"
   pi_gateway  = "10.1.0.1"
