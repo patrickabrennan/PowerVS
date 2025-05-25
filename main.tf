@@ -14,7 +14,7 @@ provider "ibm" {
 }
 
 data "ibm_pi_cloud_connection" "example" {
-  pi_cloud_connection_name  = "crn:v1:bluemix:public:power-iaas:us-south"
+  pi_cloud_connection_name  = "power-iaas:us-south:a/9568b7d56c7f48399bf8580557b5f022"
   pi_cloud_instance_id      = "08d4d95c-2597-4882-92d6-2b3516cc0fd9"
 }
 
