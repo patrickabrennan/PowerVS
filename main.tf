@@ -13,6 +13,16 @@ provider "ibm" {
   zone = var.zone
 }
 
+data "ibm_resource_group" "group" {
+  name = "default"
+}
+
+resource "ibm_pi_workspace" "powervs_service_instance" {
+  pi_name               = "test-name"
+  pi_datacenter         = "us-south"
+  pi_resource_group_id  = data.ibm_resource_group.group.id
+}
+
 #resource "ibm_pi_workspace" "powervs_service_instance" {
 #  pi_name               = "PowerVS-demo"
 #  pi_datacenter         = "us-south"
