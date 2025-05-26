@@ -10,6 +10,10 @@ variable "zone" {
   type		= string
 }
 
+variable "workspace-name" {
+  type		= string
+}
+
 variable "pi_cloud_instance_id" {
   type		= string
 }
