@@ -23,6 +23,10 @@ resource "ibm_pi_workspace" "powervs_service_instance" {
   pi_resource_group_id  = data.ibm_resource_group.group.id
 }
 
+data "ibm_schematics_workspace" "schematics_workspace" {
+    workspace_id = data.ibm_resource_group.group.id
+}
+
 #Create a subnet
 resource "ibm_pi_network" "my_subnet" { 
   pi_cloud_instance_id	= var.pi_cloud_instance_id
