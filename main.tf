@@ -23,7 +23,7 @@ resource "ibm_pi_workspace" "powervs_service_instance" {
   pi_resource_group_id  = data.ibm_resource_group.group.id
 }
 
-data "ibm_schematics_workspace" "schematics_workspace" {
+data "ibm_schematics_workspace" "powervs_service_instance" {
     workspace_id = data.ibm_resource_group.group.id
 }
 
