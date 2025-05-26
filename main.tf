@@ -9,7 +9,7 @@ terraform {
 
 provider "ibm" {
   ibmcloud_api_key   = var.ibmcloud_api_key
-  region= var.zone
+  region= var.region
   zone = var.zone
 }
 
@@ -18,8 +18,8 @@ data "ibm_resource_group" "group" {
 }
 
 resource "ibm_pi_workspace" "powervs_service_instance" {
-  pi_name               = "test-name"
-  pi_datacenter         = "us-south"
+  pi_name               = var.workspace-name
+  pi_datacenter         = var.region
   pi_resource_group_id  = data.ibm_resource_group.group.id
 }
 
