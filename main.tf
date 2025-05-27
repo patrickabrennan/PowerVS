@@ -14,13 +14,14 @@ provider "ibm" {
 }
 
 data "ibm_resource_group" "group" {
-  is_default = "true"
+  name = "default"
 }
 
 data "ibm_resource_instance" "powervs" {
   name = data.ibm_resource_group.group.id
   service = "power-iaas"
   location = var.region
+  resource_group_id = data.ibm_resource_group.group.id
 }
 
 output "pi_cloud_instance_id" {
