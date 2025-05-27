@@ -19,7 +19,7 @@ The following are for setting up the example terraform for use in HCP Terraform:
  - All variables have detault vaults, so you will be prompted for your IBM Cloud API key. Enter it and save. 
  - Perform a terraform run. It will create a plan and apply
  
-```bash
+```
 ##Default values in variable.tf 
 region  = "us-south"
 zone = "us-south"
@@ -40,7 +40,7 @@ pi_volume_size	= 100
 pi_volume_name	= "test_volume"
 pi_volume_type	= "tier3"
 pi_key_name       = "powervs-ssh"
-```bash
+```
 
 
 ​
