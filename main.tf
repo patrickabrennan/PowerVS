@@ -18,7 +18,7 @@ data "ibm_resource_group" "group" {
 }
 
 data "ibm_resource_instance" "powervs" {
-  name = var.workspace-name
+  name = "patbrennan.com"
   service = "power-iaas"
   location = var.region
 }
