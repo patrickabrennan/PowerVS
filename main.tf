@@ -18,7 +18,7 @@ data "ibm_resource_group" "group" {
 }
 
 data "ibm_resource_instance" "powervs" {
-  name = "Default"
+  name = "powervs_service_instance"
   service = "power-iaas"
   location = var.region
   resource_group_id = be53b0ed877e454ca8cae5384ef59362
