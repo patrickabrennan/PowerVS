@@ -30,6 +30,9 @@ variable "pi_cidr" {
   type		= string
 }
 
+variable "pi_dns" {
+  type		= string
+}
 
 variable "pi_gateway" {
   type		= string
