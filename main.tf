@@ -21,7 +21,7 @@ data "ibm_resource_instance" "powervs" {
   name = "Default"
   service = "power-iaas"
   location = var.region
-  resource_group_id = data.ibm_resource_group.group.id
+  resource_group_id = be53b0ed877e454ca8cae5384ef59362
 }
 
 output "pi_cloud_instance_id" {
