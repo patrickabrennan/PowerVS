@@ -35,10 +35,6 @@ variable "pi_gateway" {
   type		= string
 }
 
-variable "pi_dns" {
-  type		= string
-}
-
 variable "pi_memory" {
   type		= string
 }
