@@ -7,8 +7,8 @@ This directory contains sample Terraform code to create a Power Systems Virtual 
 - An IBM Cloud [IAM API key](https://cloud.ibm.com/docs/account?topic=account-userapikey)
 ​
 ## Terraform values to be set
-ibmcloud_api_key
-pi_ssh_key 
+ - ibmcloud_api_key
+ - pi_ssh_key 
 
 ## Setup
 The following are for setting up the example terraform for use in HCP Terraform:
