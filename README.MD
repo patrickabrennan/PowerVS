@@ -17,8 +17,8 @@ The following are for setting up the example terraform for use in HCP Terraform:
  - Add required variables:
      - ibmcloud_api_key
      - pi_ssh_key
-   ### NOTE: Make sure to either use git ignor on the variables.tf file if you add them or use HPC Terraform variable page in the console so they are not checked into git and exposed if repo 
-     set to public.
+   #### NOTE: Make sure to either use git ignor on the `variables.tf file if you add them or use HPC Terraform variable page in the console so they are not checked into git and exposed if 
+        repo set to public.
  - In HCP Terraform create a project if not using an exist one and then create a workspace
  - Connect the HCP Workspace to your repo 
  - All variables have detault vaults, so you will be prompted for your IBM Cloud API key. Enter it and save. 
