@@ -18,9 +18,10 @@ data "ibm_resource_group" "group" {
 }
 
 data "ibm_resource_instance" "powervs" {
-  name = "patbrennan.com"
+  name = var.workspace-name
   service = "power-iaas"
   location = var.region
+  depends_on = [ ibm_pi_workspace.powervs_service_instance ]
 }
 
 output "pi_cloud_instance_id" {
