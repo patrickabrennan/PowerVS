@@ -18,7 +18,7 @@ data "ibm_resource_group" "group" {
 }
 
 data "ibm_resource_instance" "powervs" {
-  name = "DNS Services-ip"
+  name = var.workspace-name
   service = "power-iaas"
   location = var.region
   resource_group_id = be53b0ed877e454ca8cae5384ef59362
