@@ -6,7 +6,8 @@ This directory contains a working Terraform code to create a Power Systems Virtu
 - An [IBM Cloud Account](https://cloud.ibm.com/registration)
 - An IBM Cloud [IAM API key](https://cloud.ibm.com/docs/account?topic=account-userapikey)
 ​
-## Terraform values to be set
+## Terraform values to set
+
  - ibmcloud_api_key
  - pi_ssh_key 
 
@@ -23,8 +24,7 @@ The following are for setting up the example terraform for use in HCP Terraform:
  - All variables have detault vaults, so you will be prompted for your IBM Cloud API key. Enter it and save. 
  - Perform a terraform run. It will create a plan and apply
  
-```
-##Default values in variable.tf 
+```##Default values in variable.tf 
 region  = "us-south"
 zone = "us-south"
 workspace-name = "Demo"
