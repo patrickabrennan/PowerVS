@@ -1,4 +1,3 @@
-#ibmcloud_api_key   = "obrSTjaKwv25WyqZXxBFWYiwhq0mIPk43aq4weVJ1F0v"
 region  = "us-south"
 zone = "us-south"
 workspace-name = "Demo"
