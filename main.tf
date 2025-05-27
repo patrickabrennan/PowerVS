@@ -14,7 +14,7 @@ provider "ibm" {
 }
 
 data "ibm_resource_group" "group" {
-  name = "default"
+  name = "Default"
 }
 
 data "ibm_resource_instance" "powervs" {
