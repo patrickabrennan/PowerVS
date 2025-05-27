@@ -48,11 +48,11 @@ resource "ibm_pi_network" "my_subnet" {
 resource "ibm_pi_instance" "my_instance" {
   pi_memory		= var.pi_memory
   pi_processors		= var.pi_processors
-  pi_instance_name	= data.ibm_resource_instance.powervs.guid   #var.pi_instance_name
+  pi_instance_name	= var.pi_instance_name
   pi_proc_type		= var.pi_proc_type
   pi_image_id 		= var.pi_image_id
   pi_sys_type		= var.pi_sys_type
-  pi_cloud_instance_id	= var.pi_cloud_instance_id
+  pi_cloud_instance_id	= data.ibm_resource_instance.powervs.guid   #var.pi_cloud_instance_id
   pi_key_pair_name = var.pi_key_name
   pi_network {
    network_id = ibm_pi_network.my_subnet.network_id
