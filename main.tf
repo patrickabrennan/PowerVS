@@ -17,6 +17,16 @@ data "ibm_resource_group" "group" {
   is_default = "true"
 }
 
+data "ibm_resource_instance" "powervs" {
+  name = "my-power-service"
+  service = "power-iaas"
+  location = var.region
+}
+
+output "pi_cloud_instance_id" {
+  value = data.ibm_resource_instance.powervs.guid
+}
+
 resource "ibm_pi_workspace" "powervs_service_instance" {
   pi_name               = var.workspace-name
   pi_datacenter         = var.region
