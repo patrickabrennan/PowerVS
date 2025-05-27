@@ -35,7 +35,7 @@ resource "ibm_pi_workspace" "powervs_service_instance" {
 
 #Create a subnet
 resource "ibm_pi_network" "my_subnet" { 
-  pi_cloud_instance_id	= var.pi_cloud_instance_id
+  pi_cloud_instance_id	= data.ibm_resource_instance.powervs.guid   #var.pi_cloud_instance_id
   pi_network_name	= var.pi_network_name
   pi_network_type	= var.pi_network_type
   pi_network_mtu       = "9000"
@@ -47,7 +47,7 @@ resource "ibm_pi_network" "my_subnet" {
 resource "ibm_pi_instance" "my_instance" {
   pi_memory		= var.pi_memory
   pi_processors		= var.pi_processors
-  pi_instance_name	= var.pi_instance_name
+  pi_instance_name	= data.ibm_resource_instance.powervs.guid   #var.pi_instance_name
   pi_proc_type		= var.pi_proc_type
   pi_image_id 		= var.pi_image_id
   pi_sys_type		= var.pi_sys_type
@@ -60,14 +60,14 @@ resource "ibm_pi_instance" "my_instance" {
 
 #create Volume
 resource "ibm_pi_volume" "test_volume" {
-  pi_cloud_instance_id	= var.pi_cloud_instance_id
+  pi_cloud_instance_id	= data.ibm_resource_instance.powervs.guid   #var.pi_cloud_instance_id
   pi_volume_size	= var.pi_volume_size
   pi_volume_name	= var.pi_volume_name
   pi_volume_type	= var.pi_volume_type 
 }
 
 resource "ibm_pi_volume_attach" "test_volume" {
-  pi_cloud_instance_id	= var.pi_cloud_instance_id
+  pi_cloud_instance_id	= data.ibm_resource_instance.powervs.guid   #var.pi_cloud_instance_id
   pi_volume_id = ibm_pi_volume.test_volume.volume_id
   pi_instance_id = ibm_pi_instance.my_instance.instance_id
 }
@@ -75,7 +75,7 @@ resource "ibm_pi_volume_attach" "test_volume" {
 resource "ibm_pi_key" "PowerVS_sshkey" {
   pi_key_name       = var.pi_key_name
   pi_ssh_key = var.pi_ssh_key
-  pi_cloud_instance_id	= var.pi_cloud_instance_id
+  pi_cloud_instance_id	= data.ibm_resource_instance.powervs.guid  #var.pi_cloud_instance_id
 }
 
 
