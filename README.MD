@@ -1,5 +1,5 @@
-# IBM Power Examples
-This directory contains sample Terraform code to create a Power Systems Virtual Server.
+# Power Systems Virtual Server Deployment in IBM Cloud 
+This directory contains a working Terraform code to create a Power Systems Virtual Server in IBM Cloud.
 ​
 ## Prerequisites
 - An HCP Terrform Account (https://developer.hashicorp.com/terraform/cloud-docs)
