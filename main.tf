@@ -100,6 +100,7 @@ resource "ibm_pi_key" "PowerVS_sshkey" {
 data "ibm_pi_instance" "vm" {
   pi_workspace_id = data.ibm_pi_workspace.powervs_service_instance.id
   name            = var.pi_instance_name
+  pi_cloud_instance_id	= data.ibm_resource_instance.powervs.guid  #var.pi_cloud_instance_id
 }
 
 
