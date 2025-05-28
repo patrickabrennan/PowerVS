@@ -94,11 +94,17 @@ resource "ibm_pi_key" "PowerVS_sshkey" {
 }
 
 
-#resource "ibm_is_floating_ip" "fip1" {
-#  name = "fip1"
-#  target = ibm_pi_instance.my_instance.network_id
-#  crn = "crn:v1:bluemix:public:power-iaas:us-south:a/9568b7d56c7f48399bf8580557b5f022:10f21edf-47a3-454f-b2a3-e1032b4ea6c5:pvm-instance:01f8706c-8589-4f1f-b13b-ae5b67bd80d0"
-#}
+
+
+
+data "ibm_pi_floating_ips" "ip" {
+  pi_workspace_id = data.ibm_pi_workspace.powervs_service_instance.id
+}
+
+output "floating_ip_address" {
+  value = data.ibm_pi_floating_ips.existing_ip.address
+}
+
 
 #output "sshcommand" {
 #  value = "ssh root@${ibm_pi_floating_ip.fip1.address}"
