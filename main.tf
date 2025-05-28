@@ -94,18 +94,6 @@ resource "ibm_pi_key" "PowerVS_sshkey" {
 }
 
 
-
-
-
-data "ibm_is_floating_ips" "ip" {
-  pi_workspace_id = data.ibm_pi_workspace.powervs_service_instance.id
-}
-
-output "floating_ip_address" {
-  value = data.ibm_pi_floating_ips.existing_ip.address
-}
-
-
 #output "sshcommand" {
 #  value = "ssh root@${ibm_pi_floating_ip.fip1.address}"
 #}
