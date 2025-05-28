@@ -94,6 +94,21 @@ resource "ibm_pi_key" "PowerVS_sshkey" {
 }
 
 
+
+
+
+locals {
+  vm_floating_ip = [
+    for ip in data.ibm_pi_floating_ips.all.floating_ips :
+    ip.address if ip.instance_id == data.ibm_pi_instance.my_instance.id
+  ][0]
+}
+
+output "vm_public_ip" {
+  value = local.vm_floating_ip
+}
+
+
 #output "sshcommand" {
 #  value = "ssh root@${ibm_pi_floating_ip.fip1.address}"
 #}
