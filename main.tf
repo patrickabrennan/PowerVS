@@ -97,16 +97,24 @@ resource "ibm_pi_key" "PowerVS_sshkey" {
 
 
 
-locals {
-  vm_floating_ip = [
-    for ip in data.ibm_pi_floating_ips.all.floating_ips :
-    ip.address if ip.instance_id == data.ibm_pi_instance.my_instance.id
-  ][0]
+data "ibm_pi_instance" "vm" {
+  pi_workspace_id = data.ibm_pi_workspace.powervs_service_instance.id
+  name            = var.pi_instance_name
 }
 
-output "vm_public_ip" {
-  value = local.vm_floating_ip
-}
+
+
+
+#locals {
+#  vm_floating_ip = [
+#    for ip in data.ibm_pi_floating_ips.all.floating_ips :
+#    ip.address if ip.instance_id == data.ibm_pi_instance.my_instance.id
+#  ][0]
+#}
+
+#output "vm_public_ip" {
+#  value = local.vm_floating_ip
+#}
 
 
 #output "sshcommand" {
