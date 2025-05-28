@@ -41,7 +41,7 @@ resource "ibm_pi_network" "my_subnet" {
   pi_network_type	= var.pi_network_type
   pi_network_mtu       = "9000"
   pi_cidr		= var.pi_cidr
-  pi_gateway  = var.pi_gateway
+  #pi_gateway  = var.pi_gateway
   pi_dns = ["8.8.8.8"]
 }
 
