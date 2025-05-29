@@ -92,32 +92,3 @@ resource "ibm_pi_key" "PowerVS_sshkey" {
   pi_ssh_key = var.pi_ssh_key
   pi_cloud_instance_id	= data.ibm_resource_instance.powervs.guid  #var.pi_cloud_instance_id
 }
-
-
-
-
-
-data "ibm_pi_instance" "vm" {
-  pi_workspace_id = data.ibm_pi_workspace.powervs_service_instance.id
-  name            = var.pi_instance_name
-  pi_cloud_instance_id	= data.ibm_resource_instance.powervs.guid  #var.pi_cloud_instance_id
-}
-
-
-
-
-#locals {
-#  vm_floating_ip = [
-#    for ip in data.ibm_pi_floating_ips.all.floating_ips :
-#    ip.address if ip.instance_id == data.ibm_pi_instance.my_instance.id
-#  ][0]
-#}
-
-#output "vm_public_ip" {
-#  value = local.vm_floating_ip
-#}
-
-
-#output "sshcommand" {
-#  value = "ssh root@${ibm_pi_floating_ip.fip1.address}"
-#}
